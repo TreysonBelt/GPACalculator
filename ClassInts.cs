@@ -1,9 +1,21 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace GPACalculator;
 public class ClassInts
 {
-    public int credits {get; set; }
+    public double credits {get; set; }
     public double classNum {get; set; }
-    public ClassInts(int classCredits, string grade)
+    public ClassInts()
+    {
+        credits = 0;
+        classNum = 0;
+    }
+    public ClassInts(double classCredits, double num)
+    {
+        credits = classCredits;
+        classNum = num;
+    }
+    public ClassInts(double classCredits, string? grade)
     {
         credits = classCredits;
         switch (grade)
@@ -47,5 +59,10 @@ public class ClassInts
             default:
                 break;
         }
+    }
+    public ClassInts(int credits, double num)
+    {
+        this.credits = credits;
+        classNum = num;
     }
 }
